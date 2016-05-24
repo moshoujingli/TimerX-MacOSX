@@ -8,10 +8,9 @@
 
 #import "ViewController.h"
 #import <FMDB.h>
-#import "TSEvent.h"
+#import "TSEventManager.h"
 
 @interface ViewController()
-@property (strong)FMDatabase *db;
 @property (strong)NSTextField *result;
 @property (strong)NSDatePicker *startDatePicker;
 @property (strong)NSDatePicker *endDatePocker;
@@ -22,11 +21,6 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    self.db = [FMDatabase databaseWithPath:@"/Users/baidu/test_time/time_line.db"];
-    if (![self.db open]) {
-        NSLog(@"db open error!");
-        exit(255);
-    }
     self.startDatePicker = [[NSDatePicker alloc]initWithFrame:NSMakeRect(0, 0, 100, 100)];
     [self.startDatePicker setDateValue:[[NSDate alloc]init]];
     [self.view addSubview:self.startDatePicker];
@@ -40,6 +34,9 @@
     [button setAction:@selector(reloadButtonCLicked:)];
     [self.view addSubview:button];
     
+    self.result = [[NSTextField alloc]initWithFrame:NSMakeRect(0, 200, 300, 100)];
+    [self.view addSubview:self.result];
+    
 //    self.startDatePicker.delegate = self;
     
     // Do any additional setup after loading the view.
@@ -52,20 +49,17 @@
 -(void)reload{
     NSTimeInterval startMillis = [self.startDatePicker.dateValue timeIntervalSinceReferenceDate];
     NSTimeInterval endMillis = [self.endDatePocker.dateValue timeIntervalSinceReferenceDate];
-    FMResultSet *rs = [self.db executeQuery:@"select * from app_time_line where time_millis between ? and ? order by time_millis asc",[NSNumber numberWithDouble:startMillis],[NSNumber numberWithDouble:endMillis] ] ;
 
-    NSArray *events = [TSEvent parseArray:rs];
-    TSEvent *lastEvent = events.lastObject;
-    NSTimeInterval nowMilli = CFAbsoluteTimeGetCurrent();
-    if (nowMilli<endMillis) {
-        lastEvent.end = nowMilli;
-    }else{
-        lastEvent.end =  endMillis;
+    TSEventManager *sharedManager = [TSEventManager sharedManager];
+    NSDictionary *appsInfo = [sharedManager appsFrom:startMillis to:endMillis];
+	NSArray *bundleIds = [appsInfo allKeys];
+    NSMutableArray *results = [[NSMutableArray alloc]initWithCapacity:bundleIds.count];
+    for (NSString *bundleId in bundleIds) {
+        TSEvent *aggrEvent = [appsInfo objectForKey:bundleId];
+        [results addObject:[NSString stringWithFormat:@"%@\t%f",bundleId,aggrEvent.end]];
     }
-    
-    for (TSEvent *event in events) {
-        NSLog(@"%@\t%@\t%f",event.bundleName,event.pageDomain,(event.end - event.start));
-    }
+ 
+    [self.result setStringValue:[results componentsJoinedByString:@"\n"]];
 }
 
 - (void)setRepresentedObject:(id)representedObject {

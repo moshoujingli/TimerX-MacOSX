@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		06F7F929B887038B81F07298 /* libPods-TimeSaver.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 9B722B6B37B8C42E371BFA30 /* libPods-TimeSaver.a */; };
+		6A0890761CF498BF00B2DBCB /* TSEventManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 6A0890751CF498BF00B2DBCB /* TSEventManager.m */; };
+		6A0890791CF4A44E00B2DBCB /* TSMacStatesObserver.m in Sources */ = {isa = PBXBuildFile; fileRef = 6A0890781CF4A44E00B2DBCB /* TSMacStatesObserver.m */; };
 		E1CED5551CEB55BB007C409E /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = E1CED5541CEB55BB007C409E /* AppDelegate.m */; };
 		E1CED5581CEB55BB007C409E /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = E1CED5571CEB55BB007C409E /* main.m */; };
 		E1CED55B1CEB55BB007C409E /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E1CED55A1CEB55BB007C409E /* ViewController.m */; };
@@ -16,7 +18,6 @@
 		E1CED56B1CEB55BB007C409E /* TimeSaverTests.m in Sources */ = {isa = PBXBuildFile; fileRef = E1CED56A1CEB55BB007C409E /* TimeSaverTests.m */; };
 		E1CED5761CEB55BB007C409E /* TimeSaverUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = E1CED5751CEB55BB007C409E /* TimeSaverUITests.m */; };
 		E1CED5861CEC3099007C409E /* TSEvent.m in Sources */ = {isa = PBXBuildFile; fileRef = E1CED5851CEC3099007C409E /* TSEvent.m */; };
-		E1CED58E1CF1FCC4007C409E /* TimeLog.m in Sources */ = {isa = PBXBuildFile; fileRef = E1CED58C1CF1FCC4007C409E /* TimeLog.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -38,6 +39,10 @@
 
 /* Begin PBXFileReference section */
 		5D974EA7FCD5B52B4761D616 /* Pods-TimeSaver.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TimeSaver.release.xcconfig"; path = "Pods/Target Support Files/Pods-TimeSaver/Pods-TimeSaver.release.xcconfig"; sourceTree = "<group>"; };
+		6A0890741CF498BF00B2DBCB /* TSEventManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TSEventManager.h; sourceTree = "<group>"; };
+		6A0890751CF498BF00B2DBCB /* TSEventManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TSEventManager.m; sourceTree = "<group>"; };
+		6A0890771CF4A44E00B2DBCB /* TSMacStatesObserver.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TSMacStatesObserver.h; sourceTree = "<group>"; };
+		6A0890781CF4A44E00B2DBCB /* TSMacStatesObserver.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TSMacStatesObserver.m; sourceTree = "<group>"; };
 		8317E4EA24D78DF28A34A6C3 /* Pods-TimeSaver.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TimeSaver.debug.xcconfig"; path = "Pods/Target Support Files/Pods-TimeSaver/Pods-TimeSaver.debug.xcconfig"; sourceTree = "<group>"; };
 		9B722B6B37B8C42E371BFA30 /* libPods-TimeSaver.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-TimeSaver.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		E1CED5501CEB55BB007C409E /* TimeSaver.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TimeSaver.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -59,8 +64,6 @@
 		E1CED5851CEC3099007C409E /* TSEvent.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TSEvent.m; sourceTree = "<group>"; };
 		E1CED58A1CF1FC92007C409E /* Chrome.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Chrome.h; sourceTree = "<group>"; };
 		E1CED58B1CF1FC92007C409E /* Safari.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Safari.h; sourceTree = "<group>"; };
-		E1CED58C1CF1FCC4007C409E /* TimeLog.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TimeLog.m; sourceTree = "<group>"; };
-		E1CED58D1CF1FCC4007C409E /* TimeLog.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TimeLog.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -174,10 +177,12 @@
 		E1CED5831CEC3085007C409E /* model */ = {
 			isa = PBXGroup;
 			children = (
-				E1CED58C1CF1FCC4007C409E /* TimeLog.m */,
-				E1CED58D1CF1FCC4007C409E /* TimeLog.h */,
 				E1CED5841CEC3099007C409E /* TSEvent.h */,
 				E1CED5851CEC3099007C409E /* TSEvent.m */,
+				6A0890741CF498BF00B2DBCB /* TSEventManager.h */,
+				6A0890751CF498BF00B2DBCB /* TSEventManager.m */,
+				6A0890771CF4A44E00B2DBCB /* TSMacStatesObserver.h */,
+				6A0890781CF4A44E00B2DBCB /* TSMacStatesObserver.m */,
 			);
 			name = model;
 			sourceTree = "<group>";
@@ -371,11 +376,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6A0890791CF4A44E00B2DBCB /* TSMacStatesObserver.m in Sources */,
 				E1CED55B1CEB55BB007C409E /* ViewController.m in Sources */,
 				E1CED5861CEC3099007C409E /* TSEvent.m in Sources */,
-				E1CED58E1CF1FCC4007C409E /* TimeLog.m in Sources */,
 				E1CED5581CEB55BB007C409E /* main.m in Sources */,
 				E1CED5551CEB55BB007C409E /* AppDelegate.m in Sources */,
+				6A0890761CF498BF00B2DBCB /* TSEventManager.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
