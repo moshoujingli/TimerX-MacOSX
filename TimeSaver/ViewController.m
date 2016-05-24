@@ -29,10 +29,17 @@
     [self.endDatePocker setDateValue:[[NSDate alloc]init]];
     [self.view addSubview:self.endDatePocker];
     
-    NSButton *button = [[NSButton alloc] initWithFrame:NSMakeRect(201, 0, 100, 100)];
-    [button setTarget:self];
-    [button setAction:@selector(reloadButtonCLicked:)];
-    [self.view addSubview:button];
+    NSButton *buttonApp = [[NSButton alloc] initWithFrame:NSMakeRect(201, 0, 100, 100)];
+    [buttonApp setTitle:@"app"];
+    [buttonApp setTarget:self];
+    [buttonApp setAction:@selector(reloadButtonCLicked:)];
+    [self.view addSubview:buttonApp];
+    
+    NSButton *buttonWeb = [[NSButton alloc] initWithFrame:NSMakeRect(301, 0, 100, 100)];
+    [buttonWeb setTitle:@"web"];
+    [buttonWeb setTarget:self];
+    [buttonWeb setAction:@selector(reloadButtonCLicked:)];
+    [self.view addSubview:buttonWeb];
     
     self.result = [[NSTextField alloc]initWithFrame:NSMakeRect(0, 200, 300, 100)];
     [self.view addSubview:self.result];
@@ -43,20 +50,26 @@
 }
 
 -(void)reloadButtonCLicked:(NSButton*) button{
-    [self reload];
+    [self reload:button.title];
 }
 
--(void)reload{
+-(void)reload:(NSString *)type{
     NSTimeInterval startMillis = [self.startDatePicker.dateValue timeIntervalSinceReferenceDate];
     NSTimeInterval endMillis = [self.endDatePocker.dateValue timeIntervalSinceReferenceDate];
 
     TSEventManager *sharedManager = [TSEventManager sharedManager];
-    NSDictionary *appsInfo = [sharedManager appsFrom:startMillis to:endMillis];
-	NSArray *bundleIds = [appsInfo allKeys];
-    NSMutableArray *results = [[NSMutableArray alloc]initWithCapacity:bundleIds.count];
-    for (NSString *bundleId in bundleIds) {
-        TSEvent *aggrEvent = [appsInfo objectForKey:bundleId];
-        [results addObject:[NSString stringWithFormat:@"%@\t%f",bundleId,aggrEvent.end]];
+    NSDictionary *aggrInfo = nil;
+    if ([type isEqualToString:@"app"]) {
+        aggrInfo =[sharedManager appsFrom:startMillis to:endMillis];
+    }else{
+        aggrInfo =[sharedManager websitesFrom:startMillis to:endMillis];
+    }
+    
+	NSArray *statKeys = [aggrInfo allKeys];
+    NSMutableArray *results = [[NSMutableArray alloc]initWithCapacity:statKeys.count];
+    for (NSString *statKey in statKeys) {
+        TSEvent *aggrEvent = [aggrInfo objectForKey:statKey];
+        [results addObject:[NSString stringWithFormat:@"%@\t%f",statKey,aggrEvent.end]];
     }
  
     [self.result setStringValue:[results componentsJoinedByString:@"\n"]];
