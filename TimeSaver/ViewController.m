@@ -21,21 +21,21 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    self.startDatePicker = [[NSDatePicker alloc]initWithFrame:NSMakeRect(0, 0, 100, 100)];
+    self.startDatePicker = [[NSDatePicker alloc]initWithFrame:NSMakeRect(0, 0, 200, 100)];
     [self.startDatePicker setDateValue:[[NSDate alloc]init]];
     [self.view addSubview:self.startDatePicker];
     
-    self.endDatePocker = [[NSDatePicker alloc]initWithFrame:NSMakeRect(101, 0, 100, 100)];
+    self.endDatePocker = [[NSDatePicker alloc]initWithFrame:NSMakeRect(201, 0, 200, 100)];
     [self.endDatePocker setDateValue:[[NSDate alloc]init]];
     [self.view addSubview:self.endDatePocker];
     
-    NSButton *buttonApp = [[NSButton alloc] initWithFrame:NSMakeRect(201, 0, 100, 100)];
+    NSButton *buttonApp = [[NSButton alloc] initWithFrame:NSMakeRect(401, 0, 100, 100)];
     [buttonApp setTitle:@"app"];
     [buttonApp setTarget:self];
     [buttonApp setAction:@selector(reloadButtonCLicked:)];
     [self.view addSubview:buttonApp];
     
-    NSButton *buttonWeb = [[NSButton alloc] initWithFrame:NSMakeRect(301, 0, 100, 100)];
+    NSButton *buttonWeb = [[NSButton alloc] initWithFrame:NSMakeRect(501, 0, 100, 100)];
     [buttonWeb setTitle:@"web"];
     [buttonWeb setTarget:self];
     [buttonWeb setAction:@selector(reloadButtonCLicked:)];
