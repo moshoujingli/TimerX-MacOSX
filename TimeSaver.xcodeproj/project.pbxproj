@@ -18,6 +18,11 @@
 		E1CED56B1CEB55BB007C409E /* TimeSaverTests.m in Sources */ = {isa = PBXBuildFile; fileRef = E1CED56A1CEB55BB007C409E /* TimeSaverTests.m */; };
 		E1CED5761CEB55BB007C409E /* TimeSaverUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = E1CED5751CEB55BB007C409E /* TimeSaverUITests.m */; };
 		E1CED5861CEC3099007C409E /* TSEvent.m in Sources */ = {isa = PBXBuildFile; fileRef = E1CED5851CEC3099007C409E /* TSEvent.m */; };
+		E1F5EF5B1CF84CE70082C1F6 /* MainWindowController.m in Sources */ = {isa = PBXBuildFile; fileRef = E1F5EF5A1CF84CE70082C1F6 /* MainWindowController.m */; };
+		E1F5EF5E1CF852810082C1F6 /* SideAreaController.m in Sources */ = {isa = PBXBuildFile; fileRef = E1F5EF5D1CF852810082C1F6 /* SideAreaController.m */; };
+		E1F5EF671CF856340082C1F6 /* NSLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = E1F5EF661CF856340082C1F6 /* NSLabel.m */; };
+		E1F5EF6A1CF8614E0082C1F6 /* MainSplitViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E1F5EF691CF8614E0082C1F6 /* MainSplitViewController.m */; };
+		E1F5EF6D1CF886A50082C1F6 /* MainContentViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E1F5EF6C1CF886A50082C1F6 /* MainContentViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -64,6 +69,16 @@
 		E1CED5851CEC3099007C409E /* TSEvent.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TSEvent.m; sourceTree = "<group>"; };
 		E1CED58A1CF1FC92007C409E /* Chrome.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Chrome.h; sourceTree = "<group>"; };
 		E1CED58B1CF1FC92007C409E /* Safari.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Safari.h; sourceTree = "<group>"; };
+		E1F5EF591CF84CE70082C1F6 /* MainWindowController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MainWindowController.h; sourceTree = "<group>"; };
+		E1F5EF5A1CF84CE70082C1F6 /* MainWindowController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MainWindowController.m; sourceTree = "<group>"; };
+		E1F5EF5C1CF852810082C1F6 /* SideAreaController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SideAreaController.h; sourceTree = "<group>"; };
+		E1F5EF5D1CF852810082C1F6 /* SideAreaController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SideAreaController.m; sourceTree = "<group>"; };
+		E1F5EF651CF856340082C1F6 /* NSLabel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NSLabel.h; sourceTree = "<group>"; };
+		E1F5EF661CF856340082C1F6 /* NSLabel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NSLabel.m; sourceTree = "<group>"; };
+		E1F5EF681CF8614E0082C1F6 /* MainSplitViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MainSplitViewController.h; sourceTree = "<group>"; };
+		E1F5EF691CF8614E0082C1F6 /* MainSplitViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MainSplitViewController.m; sourceTree = "<group>"; };
+		E1F5EF6B1CF886A50082C1F6 /* MainContentViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MainContentViewController.h; sourceTree = "<group>"; };
+		E1F5EF6C1CF886A50082C1F6 /* MainContentViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MainContentViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -134,6 +149,8 @@
 		E1CED5521CEB55BB007C409E /* TimeSaver */ = {
 			isa = PBXGroup;
 			children = (
+				E1F5EF5F1CF856020082C1F6 /* view */,
+				E1F5EF581CF84A890082C1F6 /* controller */,
 				E1CED5871CF1FBFE007C409E /* browser */,
 				E1CED5831CEC3085007C409E /* model */,
 				E1CED5531CEB55BB007C409E /* AppDelegate.h */,
@@ -194,6 +211,30 @@
 				E1CED58B1CF1FC92007C409E /* Safari.h */,
 			);
 			name = browser;
+			sourceTree = "<group>";
+		};
+		E1F5EF581CF84A890082C1F6 /* controller */ = {
+			isa = PBXGroup;
+			children = (
+				E1F5EF591CF84CE70082C1F6 /* MainWindowController.h */,
+				E1F5EF5A1CF84CE70082C1F6 /* MainWindowController.m */,
+				E1F5EF5C1CF852810082C1F6 /* SideAreaController.h */,
+				E1F5EF5D1CF852810082C1F6 /* SideAreaController.m */,
+				E1F5EF681CF8614E0082C1F6 /* MainSplitViewController.h */,
+				E1F5EF691CF8614E0082C1F6 /* MainSplitViewController.m */,
+				E1F5EF6B1CF886A50082C1F6 /* MainContentViewController.h */,
+				E1F5EF6C1CF886A50082C1F6 /* MainContentViewController.m */,
+			);
+			name = controller;
+			sourceTree = "<group>";
+		};
+		E1F5EF5F1CF856020082C1F6 /* view */ = {
+			isa = PBXGroup;
+			children = (
+				E1F5EF651CF856340082C1F6 /* NSLabel.h */,
+				E1F5EF661CF856340082C1F6 /* NSLabel.m */,
+			);
+			name = view;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -377,10 +418,15 @@
 			buildActionMask = 2147483647;
 			files = (
 				6A0890791CF4A44E00B2DBCB /* TSMacStatesObserver.m in Sources */,
+				E1F5EF5E1CF852810082C1F6 /* SideAreaController.m in Sources */,
 				E1CED55B1CEB55BB007C409E /* ViewController.m in Sources */,
 				E1CED5861CEC3099007C409E /* TSEvent.m in Sources */,
+				E1F5EF5B1CF84CE70082C1F6 /* MainWindowController.m in Sources */,
+				E1F5EF671CF856340082C1F6 /* NSLabel.m in Sources */,
+				E1F5EF6D1CF886A50082C1F6 /* MainContentViewController.m in Sources */,
 				E1CED5581CEB55BB007C409E /* main.m in Sources */,
 				E1CED5551CEB55BB007C409E /* AppDelegate.m in Sources */,
+				E1F5EF6A1CF8614E0082C1F6 /* MainSplitViewController.m in Sources */,
 				6A0890761CF498BF00B2DBCB /* TSEventManager.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -27,7 +27,7 @@
         //init db file
         NSString* homePath = NSHomeDirectory();
         NSString* dbDirPath = [homePath stringByAppendingPathComponent:@"TimerX"];
-        NSString* timeLineDBFile = [dbDirPath stringByAppendingPathComponent:@"main.db"];
+        NSString* timeLineDBFile = [dbDirPath stringByAppendingPathComponent:@"test.db"];
         NSFileManager *fileManager= [NSFileManager defaultManager];
         BOOL isDir;
         
