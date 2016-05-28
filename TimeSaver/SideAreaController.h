@@ -7,7 +7,13 @@
 //
 
 #import <Cocoa/Cocoa.h>
+#import "TXUserView.h"
 
-@interface SideAreaController : NSViewController
+@interface SideAreaController : NSViewController<NSTableViewDataSource,NSTableViewDelegate>
+
+@property IBOutlet NSStackView *container;
+@property IBOutlet TXUserView *userView;
+@property IBOutlet NSScrollView *tabContainer;
+@property IBOutlet NSTableView *functionTabs;
 
 @end

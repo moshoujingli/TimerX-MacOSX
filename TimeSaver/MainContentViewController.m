@@ -18,6 +18,8 @@
     [super viewDidLoad];
     // Do view setup here.
     self.tabStyle = NSTabViewControllerTabStyleUnspecified;
+    [self.tabView setFrameSize:NSMakeSize(720, 540)];
+
 }
 
 @end
