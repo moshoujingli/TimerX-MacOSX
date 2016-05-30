@@ -10,6 +10,7 @@
 #import "NSLabel.h"
 #import "Masonry.h"
 #import "NSView+Background.h"
+#include "TXUserConfig.h"
 
 #define TAB_HEIGHT 100
 #define USER_INFO_HEIGHT 150
@@ -23,7 +24,14 @@
 @implementation SideAreaController
 - (void)tableViewSelectionDidChange:(NSNotification *)aNotification{
     NSLog(@"%ld",(long)self.functionTabs.selectedRow);
+    if (self.functionTabs.selectedRow<0) {
+        return;
+    }
+    [TXUserConfig sharedConfig].currentUserFunctionTab = self.functionTabs.selectedRow;
 }
+
+
+
 - (NSInteger)numberOfRowsInTableView:(NSTableView *)tableView{
     return 3;
 }
@@ -94,6 +102,8 @@
 //    }];
 //    self.tabTable = tabTable;
     NSLog(@"%s,%@",__FILE__,NSStringFromRect(self.view.frame));
+    NSIndexSet *indexSet = [[NSIndexSet alloc]initWithIndex:1];
+    [self.functionTabs selectRowIndexes:indexSet byExtendingSelection:NO];
 
 //    //add time line
 //    self.timeLineTab = [[NSView alloc]init];

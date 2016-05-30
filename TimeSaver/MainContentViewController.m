@@ -7,6 +7,7 @@
 //
 
 #import "MainContentViewController.h"
+#import "TXUserConfig.h"
 
 @interface MainContentViewController ()
 
@@ -19,7 +20,25 @@
     // Do view setup here.
     self.tabStyle = NSTabViewControllerTabStyleUnspecified;
     [self.tabView setFrameSize:NSMakeSize(720, 540)];
+    
+}
 
+-(void)viewWillAppear{
+    [[TXUserConfig sharedConfig]addObserver:self forKeyPath:@"currentUserFunctionTab" options:NSKeyValueObservingOptionNew|NSKeyValueObservingOptionInitial context:nil];
+    [TXUserConfig sharedConfig].currentUserFunctionTab = 1;
+
+}
+
+-(void)viewWillDisappear{
+    [[TXUserConfig sharedConfig]removeObserver:self forKeyPath:@"currentUserFunctionTab"];
+}
+- (void)observeValueForKeyPath:(NSString *)keyPath
+                      ofObject:(id)object
+                        change:(NSDictionary *)change
+                       context:(void *)context{
+    NSInteger tabIndex = [(NSNumber *)[change objectForKey:@"new"] integerValue];
+    NSLog(@"%d",tabIndex);
+    [self.tabView selectTabViewItemAtIndex:tabIndex];
 }
 
 @end

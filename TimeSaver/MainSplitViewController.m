@@ -17,7 +17,6 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     [self.view setFrameSize:NSMakeSize(960 ,540 )];
-
 }
 
 @end

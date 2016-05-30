@@ -7,7 +7,6 @@
 //
 
 #import "MainWindowController.h"
-#import "ViewController.h"
 
 @interface MainWindowController ()
 

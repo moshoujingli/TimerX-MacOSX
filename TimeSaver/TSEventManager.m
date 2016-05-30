@@ -27,7 +27,7 @@
         //init db file
         NSString* homePath = NSHomeDirectory();
         NSString* dbDirPath = [homePath stringByAppendingPathComponent:@"TimerX"];
-        NSString* timeLineDBFile = [dbDirPath stringByAppendingPathComponent:@"test.db"];
+        NSString* timeLineDBFile = [dbDirPath stringByAppendingPathComponent:@"main.db"];
         NSFileManager *fileManager= [NSFileManager defaultManager];
         BOOL isDir;
         
@@ -49,7 +49,7 @@
     return self;
 }
 -(void)event:(TSEvent *)event at:(NSTimeInterval)timestamp{
-    [self.db executeUpdate:@"insert into `app_time_line` (bundle,page,time_millis) values (?,?,?) ",event.bundleName,event.pageName,[NSNumber numberWithDouble:timestamp]];
+//    [self.db executeUpdate:@"insert into `app_time_line` (bundle,page,time_millis) values (?,?,?) ",event.bundleName,event.pageName,[NSNumber numberWithDouble:timestamp]];
     if (event.type==ENTER) {
         event.start = timestamp;
     }
@@ -59,6 +59,7 @@
     [self event:event at:CFAbsoluteTimeGetCurrent()];
 }
 -(NSArray *)rawEventsFrom:(NSTimeInterval) from to:(NSTimeInterval) to{
+    NSLog(@"%@ %@",[NSDate dateWithTimeIntervalSinceReferenceDate:from].description,[NSDate dateWithTimeIntervalSinceReferenceDate:to].description);
     FMResultSet *rs = [self.db executeQuery:@"select bundle,page,time_millis from app_time_line where time_millis between ? and ? order by time_millis asc",[NSNumber numberWithDouble:from],[NSNumber numberWithDouble:to]] ;
     NSArray *events = [TSEventManager parseArray:rs];
     TSEvent *lastEvent = events.lastObject;
