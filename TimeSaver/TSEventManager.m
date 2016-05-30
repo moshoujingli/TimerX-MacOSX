@@ -49,7 +49,7 @@
     return self;
 }
 -(void)event:(TSEvent *)event at:(NSTimeInterval)timestamp{
-//    [self.db executeUpdate:@"insert into `app_time_line` (bundle,page,time_millis) values (?,?,?) ",event.bundleName,event.pageName,[NSNumber numberWithDouble:timestamp]];
+    [self.db executeUpdate:@"insert into `app_time_line` (bundle,page,time_millis) values (?,?,?) ",event.bundleName,event.pageName,[NSNumber numberWithDouble:timestamp]];
     if (event.type==ENTER) {
         event.start = timestamp;
     }
