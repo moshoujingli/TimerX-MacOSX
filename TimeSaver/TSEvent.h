@@ -8,6 +8,13 @@
 
 #import <Foundation/Foundation.h>
 #import "FMDB.h"
+
+typedef enum : NSUInteger {
+    ENTER,
+    EXIT,
+    AGGR
+} TSEventType;
+
 @interface TSEvent : NSObject
 
 @property NSTimeInterval start;
@@ -15,8 +22,11 @@
 @property NSString *bundleName;
 @property (nonatomic) NSString *pageName;
 @property (nonatomic) NSString *pageDomain;
+@property TSEventType type;
 
-+(NSArray *)parseArray:(FMResultSet *)rs;
 
++(instancetype)enterEventWithBundle:(NSString *)bundleName withPage:(NSString *)pageURL;
++(instancetype)aggrEventWithBundle:(NSString *)bundleName;
++(instancetype)aggrEventWithPageDomain:(NSString *)domainName;
 
 @end

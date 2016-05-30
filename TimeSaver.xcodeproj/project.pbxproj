@@ -8,15 +8,25 @@
 
 /* Begin PBXBuildFile section */
 		06F7F929B887038B81F07298 /* libPods-TimeSaver.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 9B722B6B37B8C42E371BFA30 /* libPods-TimeSaver.a */; };
+		6A0890761CF498BF00B2DBCB /* TSEventManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 6A0890751CF498BF00B2DBCB /* TSEventManager.m */; };
+		6A0890791CF4A44E00B2DBCB /* TSMacStatesObserver.m in Sources */ = {isa = PBXBuildFile; fileRef = 6A0890781CF4A44E00B2DBCB /* TSMacStatesObserver.m */; };
+		E194BA3C1CFA1A2800910B8E /* TXUserView.m in Sources */ = {isa = PBXBuildFile; fileRef = E194BA3B1CFA1A2800910B8E /* TXUserView.m */; };
+		E19CCFCC1CFC46BF0060DA28 /* TXUserConfig.m in Sources */ = {isa = PBXBuildFile; fileRef = E19CCFCB1CFC46BF0060DA28 /* TXUserConfig.m */; };
+		E19CCFCF1CFC580D0060DA28 /* TXTimeIntervalSelectPanelViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E19CCFCE1CFC580D0060DA28 /* TXTimeIntervalSelectPanelViewController.m */; };
+		E19CCFD21CFC6C4D0060DA28 /* TXTimeSpendChartViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E19CCFD11CFC6C4D0060DA28 /* TXTimeSpendChartViewController.m */; };
 		E1CED5551CEB55BB007C409E /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = E1CED5541CEB55BB007C409E /* AppDelegate.m */; };
 		E1CED5581CEB55BB007C409E /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = E1CED5571CEB55BB007C409E /* main.m */; };
-		E1CED55B1CEB55BB007C409E /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E1CED55A1CEB55BB007C409E /* ViewController.m */; };
 		E1CED55D1CEB55BB007C409E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E1CED55C1CEB55BB007C409E /* Assets.xcassets */; };
 		E1CED5601CEB55BB007C409E /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E1CED55E1CEB55BB007C409E /* Main.storyboard */; };
 		E1CED56B1CEB55BB007C409E /* TimeSaverTests.m in Sources */ = {isa = PBXBuildFile; fileRef = E1CED56A1CEB55BB007C409E /* TimeSaverTests.m */; };
 		E1CED5761CEB55BB007C409E /* TimeSaverUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = E1CED5751CEB55BB007C409E /* TimeSaverUITests.m */; };
 		E1CED5861CEC3099007C409E /* TSEvent.m in Sources */ = {isa = PBXBuildFile; fileRef = E1CED5851CEC3099007C409E /* TSEvent.m */; };
-		E1CED58E1CF1FCC4007C409E /* TimeLog.m in Sources */ = {isa = PBXBuildFile; fileRef = E1CED58C1CF1FCC4007C409E /* TimeLog.m */; };
+		E1F5EF5B1CF84CE70082C1F6 /* MainWindowController.m in Sources */ = {isa = PBXBuildFile; fileRef = E1F5EF5A1CF84CE70082C1F6 /* MainWindowController.m */; };
+		E1F5EF5E1CF852810082C1F6 /* SideAreaController.m in Sources */ = {isa = PBXBuildFile; fileRef = E1F5EF5D1CF852810082C1F6 /* SideAreaController.m */; };
+		E1F5EF671CF856340082C1F6 /* NSLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = E1F5EF661CF856340082C1F6 /* NSLabel.m */; };
+		E1F5EF6A1CF8614E0082C1F6 /* MainSplitViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E1F5EF691CF8614E0082C1F6 /* MainSplitViewController.m */; };
+		E1F5EF6D1CF886A50082C1F6 /* MainContentViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E1F5EF6C1CF886A50082C1F6 /* MainContentViewController.m */; };
+		E1F5EF701CF9E17F0082C1F6 /* NSView+Background.m in Sources */ = {isa = PBXBuildFile; fileRef = E1F5EF6F1CF9E17F0082C1F6 /* NSView+Background.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -38,14 +48,24 @@
 
 /* Begin PBXFileReference section */
 		5D974EA7FCD5B52B4761D616 /* Pods-TimeSaver.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TimeSaver.release.xcconfig"; path = "Pods/Target Support Files/Pods-TimeSaver/Pods-TimeSaver.release.xcconfig"; sourceTree = "<group>"; };
+		6A0890741CF498BF00B2DBCB /* TSEventManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TSEventManager.h; sourceTree = "<group>"; };
+		6A0890751CF498BF00B2DBCB /* TSEventManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TSEventManager.m; sourceTree = "<group>"; };
+		6A0890771CF4A44E00B2DBCB /* TSMacStatesObserver.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TSMacStatesObserver.h; sourceTree = "<group>"; };
+		6A0890781CF4A44E00B2DBCB /* TSMacStatesObserver.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TSMacStatesObserver.m; sourceTree = "<group>"; };
 		8317E4EA24D78DF28A34A6C3 /* Pods-TimeSaver.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TimeSaver.debug.xcconfig"; path = "Pods/Target Support Files/Pods-TimeSaver/Pods-TimeSaver.debug.xcconfig"; sourceTree = "<group>"; };
 		9B722B6B37B8C42E371BFA30 /* libPods-TimeSaver.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-TimeSaver.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		E194BA3A1CFA1A2800910B8E /* TXUserView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TXUserView.h; sourceTree = "<group>"; };
+		E194BA3B1CFA1A2800910B8E /* TXUserView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TXUserView.m; sourceTree = "<group>"; };
+		E19CCFCA1CFC46BF0060DA28 /* TXUserConfig.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TXUserConfig.h; sourceTree = "<group>"; };
+		E19CCFCB1CFC46BF0060DA28 /* TXUserConfig.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TXUserConfig.m; sourceTree = "<group>"; };
+		E19CCFCD1CFC580D0060DA28 /* TXTimeIntervalSelectPanelViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TXTimeIntervalSelectPanelViewController.h; sourceTree = "<group>"; };
+		E19CCFCE1CFC580D0060DA28 /* TXTimeIntervalSelectPanelViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TXTimeIntervalSelectPanelViewController.m; sourceTree = "<group>"; };
+		E19CCFD01CFC6C4D0060DA28 /* TXTimeSpendChartViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TXTimeSpendChartViewController.h; sourceTree = "<group>"; };
+		E19CCFD11CFC6C4D0060DA28 /* TXTimeSpendChartViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TXTimeSpendChartViewController.m; sourceTree = "<group>"; };
 		E1CED5501CEB55BB007C409E /* TimeSaver.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TimeSaver.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E1CED5531CEB55BB007C409E /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		E1CED5541CEB55BB007C409E /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
 		E1CED5571CEB55BB007C409E /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
-		E1CED5591CEB55BB007C409E /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
-		E1CED55A1CEB55BB007C409E /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
 		E1CED55C1CEB55BB007C409E /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		E1CED55F1CEB55BB007C409E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		E1CED5611CEB55BB007C409E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -59,8 +79,19 @@
 		E1CED5851CEC3099007C409E /* TSEvent.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TSEvent.m; sourceTree = "<group>"; };
 		E1CED58A1CF1FC92007C409E /* Chrome.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Chrome.h; sourceTree = "<group>"; };
 		E1CED58B1CF1FC92007C409E /* Safari.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Safari.h; sourceTree = "<group>"; };
-		E1CED58C1CF1FCC4007C409E /* TimeLog.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TimeLog.m; sourceTree = "<group>"; };
-		E1CED58D1CF1FCC4007C409E /* TimeLog.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TimeLog.h; sourceTree = "<group>"; };
+		E1F5EF591CF84CE70082C1F6 /* MainWindowController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MainWindowController.h; sourceTree = "<group>"; };
+		E1F5EF5A1CF84CE70082C1F6 /* MainWindowController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MainWindowController.m; sourceTree = "<group>"; };
+		E1F5EF5C1CF852810082C1F6 /* SideAreaController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SideAreaController.h; sourceTree = "<group>"; };
+		E1F5EF5D1CF852810082C1F6 /* SideAreaController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SideAreaController.m; sourceTree = "<group>"; };
+		E1F5EF651CF856340082C1F6 /* NSLabel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NSLabel.h; sourceTree = "<group>"; };
+		E1F5EF661CF856340082C1F6 /* NSLabel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NSLabel.m; sourceTree = "<group>"; };
+		E1F5EF681CF8614E0082C1F6 /* MainSplitViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MainSplitViewController.h; sourceTree = "<group>"; };
+		E1F5EF691CF8614E0082C1F6 /* MainSplitViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MainSplitViewController.m; sourceTree = "<group>"; };
+		E1F5EF6B1CF886A50082C1F6 /* MainContentViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MainContentViewController.h; sourceTree = "<group>"; };
+		E1F5EF6C1CF886A50082C1F6 /* MainContentViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MainContentViewController.m; sourceTree = "<group>"; };
+		E1F5EF6E1CF9E17F0082C1F6 /* NSView+Background.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSView+Background.h"; sourceTree = "<group>"; };
+		E1F5EF6F1CF9E17F0082C1F6 /* NSView+Background.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSView+Background.m"; sourceTree = "<group>"; };
+		E1F5EF721CF9F9C80082C1F6 /* TXLayout.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TXLayout.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -131,12 +162,13 @@
 		E1CED5521CEB55BB007C409E /* TimeSaver */ = {
 			isa = PBXGroup;
 			children = (
+				E1F5EF711CF9F9AD0082C1F6 /* utils */,
+				E1F5EF5F1CF856020082C1F6 /* view */,
+				E1F5EF581CF84A890082C1F6 /* controller */,
 				E1CED5871CF1FBFE007C409E /* browser */,
 				E1CED5831CEC3085007C409E /* model */,
 				E1CED5531CEB55BB007C409E /* AppDelegate.h */,
 				E1CED5541CEB55BB007C409E /* AppDelegate.m */,
-				E1CED5591CEB55BB007C409E /* ViewController.h */,
-				E1CED55A1CEB55BB007C409E /* ViewController.m */,
 				E1CED55C1CEB55BB007C409E /* Assets.xcassets */,
 				E1CED55E1CEB55BB007C409E /* Main.storyboard */,
 				E1CED5611CEB55BB007C409E /* Info.plist */,
@@ -174,10 +206,14 @@
 		E1CED5831CEC3085007C409E /* model */ = {
 			isa = PBXGroup;
 			children = (
-				E1CED58C1CF1FCC4007C409E /* TimeLog.m */,
-				E1CED58D1CF1FCC4007C409E /* TimeLog.h */,
 				E1CED5841CEC3099007C409E /* TSEvent.h */,
 				E1CED5851CEC3099007C409E /* TSEvent.m */,
+				6A0890741CF498BF00B2DBCB /* TSEventManager.h */,
+				6A0890751CF498BF00B2DBCB /* TSEventManager.m */,
+				6A0890771CF4A44E00B2DBCB /* TSMacStatesObserver.h */,
+				6A0890781CF4A44E00B2DBCB /* TSMacStatesObserver.m */,
+				E19CCFCA1CFC46BF0060DA28 /* TXUserConfig.h */,
+				E19CCFCB1CFC46BF0060DA28 /* TXUserConfig.m */,
 			);
 			name = model;
 			sourceTree = "<group>";
@@ -189,6 +225,46 @@
 				E1CED58B1CF1FC92007C409E /* Safari.h */,
 			);
 			name = browser;
+			sourceTree = "<group>";
+		};
+		E1F5EF581CF84A890082C1F6 /* controller */ = {
+			isa = PBXGroup;
+			children = (
+				E1F5EF591CF84CE70082C1F6 /* MainWindowController.h */,
+				E1F5EF5A1CF84CE70082C1F6 /* MainWindowController.m */,
+				E1F5EF5C1CF852810082C1F6 /* SideAreaController.h */,
+				E1F5EF5D1CF852810082C1F6 /* SideAreaController.m */,
+				E1F5EF681CF8614E0082C1F6 /* MainSplitViewController.h */,
+				E1F5EF691CF8614E0082C1F6 /* MainSplitViewController.m */,
+				E1F5EF6B1CF886A50082C1F6 /* MainContentViewController.h */,
+				E1F5EF6C1CF886A50082C1F6 /* MainContentViewController.m */,
+				E19CCFCD1CFC580D0060DA28 /* TXTimeIntervalSelectPanelViewController.h */,
+				E19CCFCE1CFC580D0060DA28 /* TXTimeIntervalSelectPanelViewController.m */,
+				E19CCFD01CFC6C4D0060DA28 /* TXTimeSpendChartViewController.h */,
+				E19CCFD11CFC6C4D0060DA28 /* TXTimeSpendChartViewController.m */,
+			);
+			name = controller;
+			sourceTree = "<group>";
+		};
+		E1F5EF5F1CF856020082C1F6 /* view */ = {
+			isa = PBXGroup;
+			children = (
+				E1F5EF651CF856340082C1F6 /* NSLabel.h */,
+				E1F5EF661CF856340082C1F6 /* NSLabel.m */,
+				E1F5EF6E1CF9E17F0082C1F6 /* NSView+Background.h */,
+				E1F5EF6F1CF9E17F0082C1F6 /* NSView+Background.m */,
+				E194BA3A1CFA1A2800910B8E /* TXUserView.h */,
+				E194BA3B1CFA1A2800910B8E /* TXUserView.m */,
+			);
+			name = view;
+			sourceTree = "<group>";
+		};
+		E1F5EF711CF9F9AD0082C1F6 /* utils */ = {
+			isa = PBXGroup;
+			children = (
+				E1F5EF721CF9F9C80082C1F6 /* TXLayout.h */,
+			);
+			name = utils;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -371,11 +447,21 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				E1CED55B1CEB55BB007C409E /* ViewController.m in Sources */,
+				E19CCFCF1CFC580D0060DA28 /* TXTimeIntervalSelectPanelViewController.m in Sources */,
+				6A0890791CF4A44E00B2DBCB /* TSMacStatesObserver.m in Sources */,
+				E1F5EF5E1CF852810082C1F6 /* SideAreaController.m in Sources */,
 				E1CED5861CEC3099007C409E /* TSEvent.m in Sources */,
-				E1CED58E1CF1FCC4007C409E /* TimeLog.m in Sources */,
+				E19CCFD21CFC6C4D0060DA28 /* TXTimeSpendChartViewController.m in Sources */,
+				E1F5EF5B1CF84CE70082C1F6 /* MainWindowController.m in Sources */,
+				E1F5EF671CF856340082C1F6 /* NSLabel.m in Sources */,
+				E1F5EF6D1CF886A50082C1F6 /* MainContentViewController.m in Sources */,
 				E1CED5581CEB55BB007C409E /* main.m in Sources */,
+				E19CCFCC1CFC46BF0060DA28 /* TXUserConfig.m in Sources */,
 				E1CED5551CEB55BB007C409E /* AppDelegate.m in Sources */,
+				E194BA3C1CFA1A2800910B8E /* TXUserView.m in Sources */,
+				E1F5EF701CF9E17F0082C1F6 /* NSView+Background.m in Sources */,
+				E1F5EF6A1CF8614E0082C1F6 /* MainSplitViewController.m in Sources */,
+				6A0890761CF498BF00B2DBCB /* TSEventManager.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -511,6 +597,7 @@
 				COMBINE_HIDPI_IMAGES = YES;
 				INFOPLIST_FILE = TimeSaver/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
+				MACOSX_DEPLOYMENT_TARGET = 10.10;
 				PRODUCT_BUNDLE_IDENTIFIER = com.moshoujingli.TimeSaver;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
@@ -524,6 +611,7 @@
 				COMBINE_HIDPI_IMAGES = YES;
 				INFOPLIST_FILE = TimeSaver/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
+				MACOSX_DEPLOYMENT_TARGET = 10.10;
 				PRODUCT_BUNDLE_IDENTIFIER = com.moshoujingli.TimeSaver;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};

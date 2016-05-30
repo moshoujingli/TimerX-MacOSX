@@ -12,42 +12,35 @@
 @synthesize pageName = _pageName;
 @synthesize pageDomain = _pageDomain;
 
++(instancetype)enterEventWithBundle:(NSString *)bundleName withPage:(NSString *)pageURL{
+    TSEvent *event = [[TSEvent alloc]init];
+    event.bundleName = bundleName;
+    event.pageName = pageURL;
+    event.type = ENTER;
+    return event;
+}
+
++(instancetype)aggrEventWithBundle:(NSString *)bundleName{
+    TSEvent *event = [[TSEvent alloc]init];
+    event.bundleName = bundleName;
+    event.type = AGGR;
+    event.start=0;
+    event.end=0;
+    return event;
+}
++(instancetype)aggrEventWithPageDomain:(NSString *)domainName{
+    TSEvent *event = [[TSEvent alloc]init];
+    event.pageDomain = domainName;
+    event.type = AGGR;
+    event.start=0;
+    event.end=0;
+    return event;
+}
 -(void)setPageName:(NSString *)pageName{
     _pageName = pageName;
     _pageDomain = [NSURL URLWithString:pageName].host;
 }
-
-+(NSArray *)parseArray:(FMResultSet *)rs{
-    NSMutableArray *eventResult = [[NSMutableArray alloc]initWithCapacity:200];
-    TSEvent *lastEvent = nil;
-    while ([rs next]) {
-        NSString *bundleName = [rs stringForColumnIndex:0];
-        NSString *pageName = [rs stringForColumnIndex:1];
-        NSTimeInterval timeInterval = [rs doubleForColumnIndex:2];
-        
-        if (lastEvent==nil) {
-            NSLog(@"start Parse");
-            lastEvent = [[TSEvent alloc]init];
-            lastEvent.bundleName = bundleName;
-            lastEvent.pageName = pageName;
-            lastEvent.start = timeInterval;
-        }else{
-            TSEvent *event = [[TSEvent alloc]init];
-            if ([lastEvent.bundleName isEqualToString:bundleName] && [lastEvent.pageName isEqualToString:pageName]) {
-                continue;
-            }
-            event.bundleName = bundleName;
-            event.pageName = pageName;
-            event.start = timeInterval;
-            lastEvent.end = timeInterval-0.01;
-            lastEvent = event;
-        }
-        [eventResult addObject:lastEvent];
-    }
-    
-    
-    return eventResult;
-    
+-(NSString *)description{
+    return [NSString stringWithFormat:@"%@\t%@\t%f",self.bundleName,self.pageDomain,self.start];
 }
-
 @end
