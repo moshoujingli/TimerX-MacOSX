@@ -19,6 +19,9 @@
 @implementation AppDelegate
 - (void)applicationDidFinishLaunching:(NSNotification *)aNotification {
     [[TSMacStatesObserver sharedObserver]startObserve];
+    [NSEvent addGlobalMonitorForEventsMatchingMask:NSMouseMovedMask|NSKeyDownMask handler:^(NSEvent * event) {
+//        NSLog(@"do!");
+    }];
 }
 
 - (void)applicationWillTerminate:(NSNotification *)aNotification {
