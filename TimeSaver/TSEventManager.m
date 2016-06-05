@@ -49,7 +49,7 @@
     return self;
 }
 -(void)event:(TSEvent *)event at:(NSTimeInterval)timestamp{
-    [self.db executeUpdate:@"insert into `app_time_line` (bundle,page,time_millis) values (?,?,?) ",event.bundleName,event.pageName,[NSNumber numberWithDouble:timestamp]];
+    [self.db executeUpdate:@"insert into `app_time_line` (bundle,page,time_millis) values (?,?,?) ", event.bundleName, event.pageName, @(timestamp)];
     if (event.type==ENTER) {
         event.start = timestamp;
     }
@@ -60,7 +60,7 @@
 }
 -(NSArray *)rawEventsFrom:(NSTimeInterval) from to:(NSTimeInterval) to{
     NSLog(@"%@ %@",[NSDate dateWithTimeIntervalSinceReferenceDate:from].description,[NSDate dateWithTimeIntervalSinceReferenceDate:to].description);
-    FMResultSet *rs = [self.db executeQuery:@"select bundle,page,time_millis from app_time_line where time_millis between ? and ? order by time_millis asc",[NSNumber numberWithDouble:from],[NSNumber numberWithDouble:to]] ;
+    FMResultSet *rs = [self.db executeQuery:@"select bundle,page,time_millis from app_time_line where time_millis between ? and ? order by time_millis asc", @(from), @(to)] ;
     NSArray *events = [TSEventManager parseArray:rs];
     TSEvent *lastEvent = events.lastObject;
     NSTimeInterval nowMilli = CFAbsoluteTimeGetCurrent();
@@ -75,7 +75,7 @@
 -(NSArray *)eventsFrom:(NSTimeInterval) from to:(NSTimeInterval) to{
     NSArray *rawEvents = [self rawEventsFrom:from to:to];
     TSEvent *first = rawEvents.firstObject;
-    FMResultSet *rs = [self.db executeQuery:@"select bundle,page,time_millis from app_time_line where time_millis <= ? order by time_millis desc limit 1",[NSNumber numberWithDouble:from]] ;
+    FMResultSet *rs = [self.db executeQuery:@"select bundle,page,time_millis from app_time_line where time_millis <= ? order by time_millis desc limit 1", @(from)] ;
     NSArray *events = [TSEventManager parseArray:rs];
     if([events count]>0){
         TSEvent *fakeFirst = events.firstObject;
@@ -92,12 +92,12 @@
     NSArray *events = [self eventsFrom:from to:to];
     NSMutableDictionary *appsTimeDic = [[NSMutableDictionary alloc]initWithCapacity:80];
     for (TSEvent *event in events) {
-        TSEvent *aggrEvent = [appsTimeDic objectForKey:event.bundleName];
+        TSEvent *aggrEvent = appsTimeDic[event.bundleName];
         if (aggrEvent==nil) {
             aggrEvent = [TSEvent aggrEventWithBundle:event.bundleName];
         }
         aggrEvent.end+= event.end - event.start;
-        [appsTimeDic setObject:aggrEvent forKey:event.bundleName];
+        appsTimeDic[event.bundleName] = aggrEvent;
     }
     return appsTimeDic;
 }
@@ -108,12 +108,12 @@
         if (event.pageDomain==nil) {
             continue;
         }
-        TSEvent *aggrEvent = [appsTimeDic objectForKey:event.pageDomain];
+        TSEvent *aggrEvent = appsTimeDic[event.pageDomain];
         if (aggrEvent==nil) {
             aggrEvent = [TSEvent aggrEventWithPageDomain:event.pageDomain];
         }
         aggrEvent.end+= event.end - event.start;
-        [appsTimeDic setObject:aggrEvent forKey:event.pageDomain];
+        appsTimeDic[event.pageDomain] = aggrEvent;
     }
     return appsTimeDic;
 }

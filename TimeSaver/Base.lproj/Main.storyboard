@@ -981,11 +981,11 @@
             <objects>
                 <viewController id="RIa-kk-Ig1" customClass="TXTimeSpendChartViewController" sceneMemberID="viewController">
                     <view key="view" id="ITC-aH-BYE">
-                        <rect key="frame" x="0.0" y="0.0" width="910" height="300"/>
+                        <rect key="frame" x="0.0" y="0.0" width="910" height="471"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <subviews>
                             <textField identifier="app" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="G45-HD-mdF">
-                                <rect key="frame" x="26" y="20" width="410" height="260"/>
+                                <rect key="frame" x="29" y="15" width="410" height="260"/>
                                 <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" state="on" borderStyle="bezel" drawsBackground="YES" id="gUj-ts-Vhq">
                                     <font key="font" metaFont="system"/>
                                     <color key="textColor" name="textColor" catalog="System" colorSpace="catalog"/>
@@ -993,7 +993,7 @@
                                 </textFieldCell>
                             </textField>
                             <textField verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Tpe-8s-eS8">
-                                <rect key="frame" x="464" y="20" width="426" height="260"/>
+                                <rect key="frame" x="464" y="15" width="426" height="260"/>
                                 <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" state="on" borderStyle="bezel" drawsBackground="YES" id="iCj-C2-6u6">
                                     <font key="font" metaFont="system"/>
                                     <color key="textColor" name="textColor" catalog="System" colorSpace="catalog"/>
@@ -1009,7 +1009,7 @@
                 </viewController>
                 <customObject id="g8Y-Og-Uo6" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1130" y="2566"/>
+            <point key="canvasLocation" x="-1130" y="2651.5"/>
         </scene>
     </scenes>
     <resources>
