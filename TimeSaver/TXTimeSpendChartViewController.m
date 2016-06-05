@@ -14,6 +14,7 @@
 @interface TXTimeSpendChartViewController ()
 
 @property (strong) TXPieChartView *appTimePieChart;
+@property (strong) TXPieChartView *webTimePieChart;
 
 @end
 
@@ -28,19 +29,32 @@
     [self.view addSubview:pieChartView];
 
     [pieChartView mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.width.equalTo(@100);
-        make.height.equalTo(@100);
-        make.top.equalTo(weakSelf.view);
-        make.leading.equalTo(weakSelf.view);
+        make.width.equalTo(@200);
+        make.height.equalTo(@200);
+        make.centerX.equalTo(weakSelf.appDataArea.mas_centerX);
+        make.bottom.equalTo(weakSelf.appDataArea.mas_top).with.offset(5);
+
     }];
     self.appTimePieChart = pieChartView;
 
-
+    pieChartView = [[TXPieChartView alloc] init];
+    [self.view addSubview:pieChartView];
+    
+    [pieChartView mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.width.equalTo(@200);
+        make.height.equalTo(@200);
+        make.centerX.equalTo(weakSelf.webDataArea.mas_centerX);
+        make.bottom.equalTo(weakSelf.webDataArea.mas_top).with.offset(5);
+    }];
+    self.webTimePieChart = pieChartView;
+    
+    
 }
 
 -(void)reload{
-    [self reload:@"app"];
     [self reload:@"web"];
+    [self reload:@"app"];
+
 }
 -(void)reload:(NSString *)type{
     TXUserConfig * sharedConfig = [TXUserConfig sharedConfig];
@@ -81,7 +95,13 @@
         }
         return NSOrderedSame;
     }];
-    [self.appTimePieChart setEventList:sorted];
+    
+    if ([type isEqualToString:@"app"]) {
+        [self.appTimePieChart setEventList:sorted];
+    }else{
+        [self.webTimePieChart setEventList:sorted];
+    }
+    
 }
 
 @end

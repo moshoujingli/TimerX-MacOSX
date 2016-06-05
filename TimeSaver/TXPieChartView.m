@@ -71,6 +71,8 @@
     NSLog(NSStringFromSize(self.frame.size));
     CGFloat width = self.frame.size.width;
     CGFloat height = self.frame.size.height;
+    CGFloat center = width/2;
+    CGFloat radio = center-5;
     [context saveGraphicsState];
     //
     NSBezierPath*   arcPath = [NSBezierPath bezierPath];
@@ -87,9 +89,9 @@
         [colorFill setFill];
         [arcPath removeAllPoints];
         endAngle = startAngle-event.end*360.0f;
-        [arcPath appendBezierPathWithArcWithCenter:NSMakePoint(50,50) radius:45 startAngle:startAngle endAngle:endAngle clockwise:YES];
+        [arcPath appendBezierPathWithArcWithCenter:NSMakePoint(center,center) radius:radio startAngle:startAngle endAngle:endAngle clockwise:YES];
         startAngle = endAngle;
-        [arcPath lineToPoint:NSMakePoint(50,50)];
+        [arcPath lineToPoint:NSMakePoint(center,center)];
         [arcPath closePath];
         [arcPath fill];
     }

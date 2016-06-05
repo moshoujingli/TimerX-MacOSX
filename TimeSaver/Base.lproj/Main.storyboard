@@ -845,7 +845,7 @@
                                             <color key="backgroundColor" name="controlBackgroundColor" catalog="System" colorSpace="catalog"/>
                                         </clipView>
                                         <scroller key="horizontalScroller" hidden="YES" verticalHuggingPriority="750" horizontal="YES" id="b3l-y2-c7h">
-                                            <rect key="frame" x="1" y="33" width="238" height="16"/>
+                                            <rect key="frame" x="1" y="7" width="0.0" height="16"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                         </scroller>
                                         <scroller key="verticalScroller" hidden="YES" verticalHuggingPriority="750" horizontal="NO" id="oTw-Cs-p3d">
@@ -985,7 +985,7 @@
                         <autoresizingMask key="autoresizingMask"/>
                         <subviews>
                             <textField identifier="app" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="G45-HD-mdF">
-                                <rect key="frame" x="29" y="26" width="410" height="260"/>
+                                <rect key="frame" x="29" y="15" width="410" height="260"/>
                                 <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" state="on" borderStyle="bezel" drawsBackground="YES" id="gUj-ts-Vhq">
                                     <font key="font" metaFont="system"/>
                                     <color key="textColor" name="textColor" catalog="System" colorSpace="catalog"/>
@@ -993,7 +993,7 @@
                                 </textFieldCell>
                             </textField>
                             <textField verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Tpe-8s-eS8">
-                                <rect key="frame" x="464" y="26" width="426" height="260"/>
+                                <rect key="frame" x="464" y="15" width="426" height="260"/>
                                 <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" state="on" borderStyle="bezel" drawsBackground="YES" id="iCj-C2-6u6">
                                     <font key="font" metaFont="system"/>
                                     <color key="textColor" name="textColor" catalog="System" colorSpace="catalog"/>
