@@ -117,7 +117,7 @@
 
 -(void)logEventForBundle:(NSString *)bundleName page:(NSString *)pageURL{
     TSEvent *event = [TSEvent enterEventWithBundle:bundleName withPage:pageURL];
-    [self.eventManager eventNow:event];
+    [self.eventManager saveEventNow:event];
 }
 
 @end

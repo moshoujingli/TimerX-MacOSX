@@ -8,7 +8,9 @@
 
 /* Begin PBXBuildFile section */
 		06F7F929B887038B81F07298 /* libPods-TimeSaver.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 9B722B6B37B8C42E371BFA30 /* libPods-TimeSaver.a */; };
+		592AE4074B104EA57108FD0B /* TSUsageAggregation.m in Sources */ = {isa = PBXBuildFile; fileRef = 592AE289A8AD14DA63D74CBA /* TSUsageAggregation.m */; };
 		592AE851ABF3F4BF9E47D6F9 /* TXPieChartView.m in Sources */ = {isa = PBXBuildFile; fileRef = 592AE63CBD4D19E9473E237D /* TXPieChartView.m */; };
+		592AE9A8242040164CEA858B /* TSUsageRecord.m in Sources */ = {isa = PBXBuildFile; fileRef = 592AEE016094F965EEEC8D2D /* TSUsageRecord.m */; };
 		6A0890761CF498BF00B2DBCB /* TSEventManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 6A0890751CF498BF00B2DBCB /* TSEventManager.m */; };
 		6A0890791CF4A44E00B2DBCB /* TSMacStatesObserver.m in Sources */ = {isa = PBXBuildFile; fileRef = 6A0890781CF4A44E00B2DBCB /* TSMacStatesObserver.m */; };
 		E194BA3C1CFA1A2800910B8E /* TXUserView.m in Sources */ = {isa = PBXBuildFile; fileRef = E194BA3B1CFA1A2800910B8E /* TXUserView.m */; };
@@ -48,7 +50,11 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		592AE289A8AD14DA63D74CBA /* TSUsageAggregation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TSUsageAggregation.m; sourceTree = "<group>"; };
 		592AE63CBD4D19E9473E237D /* TXPieChartView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TXPieChartView.m; sourceTree = "<group>"; };
+		592AE6A8DBD20F2331EA0F1B /* TSUsageAggregation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TSUsageAggregation.h; sourceTree = "<group>"; };
+		592AEB175BD0867707840C4B /* TSUsageRecord.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TSUsageRecord.h; sourceTree = "<group>"; };
+		592AEE016094F965EEEC8D2D /* TSUsageRecord.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TSUsageRecord.m; sourceTree = "<group>"; };
 		592AEF808F6789A9B674DA50 /* TXPieChartView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TXPieChartView.h; sourceTree = "<group>"; };
 		5D974EA7FCD5B52B4761D616 /* Pods-TimeSaver.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TimeSaver.release.xcconfig"; path = "Pods/Target Support Files/Pods-TimeSaver/Pods-TimeSaver.release.xcconfig"; sourceTree = "<group>"; };
 		6A0890741CF498BF00B2DBCB /* TSEventManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TSEventManager.h; sourceTree = "<group>"; };
@@ -217,6 +223,10 @@
 				6A0890781CF4A44E00B2DBCB /* TSMacStatesObserver.m */,
 				E19CCFCA1CFC46BF0060DA28 /* TXUserConfig.h */,
 				E19CCFCB1CFC46BF0060DA28 /* TXUserConfig.m */,
+				592AEE016094F965EEEC8D2D /* TSUsageRecord.m */,
+				592AEB175BD0867707840C4B /* TSUsageRecord.h */,
+				592AE289A8AD14DA63D74CBA /* TSUsageAggregation.m */,
+				592AE6A8DBD20F2331EA0F1B /* TSUsageAggregation.h */,
 			);
 			name = model;
 			sourceTree = "<group>";
@@ -468,6 +478,8 @@
 				E1F5EF6A1CF8614E0082C1F6 /* MainSplitViewController.m in Sources */,
 				6A0890761CF498BF00B2DBCB /* TSEventManager.m in Sources */,
 				592AE851ABF3F4BF9E47D6F9 /* TXPieChartView.m in Sources */,
+				592AE9A8242040164CEA858B /* TSUsageRecord.m in Sources */,
+				592AE4074B104EA57108FD0B /* TSUsageAggregation.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

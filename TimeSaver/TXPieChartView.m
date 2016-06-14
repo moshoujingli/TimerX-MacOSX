@@ -4,7 +4,7 @@
 //
 
 #import "TXPieChartView.h"
-#import "TSEvent.h"
+#import "TSUsageAggregation.h"
 
 @interface TXPieChartView()
 @property (nonatomic)NSArray *shareArray;
@@ -35,19 +35,17 @@
         NSMutableArray *shareDic = [[NSMutableArray alloc] initWithCapacity:eventList.count];
         self.shareArray = shareDic;
         double sum = 0;
-        for(TSEvent * event in eventList){
-            sum+= event.end;
+        for(TSUsageAggregation * event in eventList){
+            sum+= event.duration;
         }
         if(sum==0){
             [self stateNoContent];
             return;
         }
-        for(TSEvent * event in eventList){
-            TSEvent *shareEvent = [[TSEvent alloc]init];
-            shareEvent.bundleName = event.bundleName;
-            shareEvent.pageDomain = event.pageDomain;
-            shareEvent.end = event.end/sum;
-            [shareDic addObject:shareEvent];
+        for(TSUsageAggregation * event in eventList){
+            TSUsageAggregation *shareAggr = [[TSUsageAggregation alloc] initFrom:event];
+            shareAggr.duration = shareAggr.duration/sum;
+            [shareDic addObject:shareAggr];
         }
     }
     [self display];
@@ -98,9 +96,9 @@
     NSBezierPath*   arcPath = [NSBezierPath bezierPath];
     CGFloat startAngle = 90;
     CGFloat endAngle;
-    for (int i = 0; i < self.shareArray.count; ++i) {
+    for (NSUInteger i = 0; i < self.shareArray.count; ++i) {
         NSColor *colorFill = nil;
-        TSEvent *event = self.shareArray[i];
+        TSUsageAggregation *event = self.shareArray[i];
         if (i>=self.colorList.count){
             colorFill = self.colorList.lastObject;
         }else{
@@ -108,7 +106,7 @@
         }
         [colorFill setFill];
         [arcPath removeAllPoints];
-        endAngle = startAngle-event.end*360.0f;
+        endAngle = startAngle-event.duration*360.0f;
         [arcPath appendBezierPathWithArcWithCenter:NSMakePoint(center,center) radius:radio startAngle:startAngle endAngle:endAngle clockwise:YES];
         startAngle = endAngle;
         [arcPath lineToPoint:NSMakePoint(center,center)];
@@ -116,9 +114,11 @@
         [arcPath fill];
     }
     //note we are using the convenience method, so we don't need to autorelease the object
-    NSDictionary *attributes = [NSDictionary dictionaryWithObjectsAndKeys:[NSFont fontWithName:@"Helvetica" size:22], NSFontAttributeName,[NSColor whiteColor], NSForegroundColorAttributeName,[NSColor blackColor] ,NSBackgroundColorAttributeName,nil];
+    NSDictionary *attributes = @{NSFontAttributeName : [NSFont fontWithName:@"Helvetica" size:22],
+            NSForegroundColorAttributeName : [NSColor whiteColor],
+            NSBackgroundColorAttributeName : [NSColor blackColor]};
     NSAttributedString * currentText=[[NSAttributedString alloc] initWithString:[self getMouseHint] attributes: attributes];
-    NSSize attrSize = [currentText size];
+//    NSSize attrSize = [currentText size];
     [currentText drawAtPoint:self.mouseLocation];
     [context restoreGraphicsState];
 }
@@ -144,14 +144,13 @@
         }
         NSLog(@"%f",pos);
         CGFloat base = 0;
-        for (int i = 0; i < self.shareArray.count; ++i) {
-            TSEvent *event = self.shareArray[i];
-            base+=event.end;
+        for (NSUInteger i = 0; i < self.shareArray.count; ++i) {
+            TSUsageAggregation *event = self.shareArray[i];
+            base+=event.duration;
             if (base>pos) {
-                return event.bundleName==nil?event.pageDomain:event.bundleName;
+                return event.usageName;
             }
         }
-        return @"cat";
     }
     return @"";
 }

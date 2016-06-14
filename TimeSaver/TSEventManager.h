@@ -8,15 +8,21 @@
 
 #import <Foundation/Foundation.h>
 #import "TSEvent.h"
-
+#import "TSUsageRecord.h"
+#import "TSUsageAggregation.h"
 @interface TSEventManager : NSObject
-+(instancetype)sharedManager;
--(void)event:(TSEvent *)event at:(NSTimeInterval)timestamp;
--(void)eventNow:(TSEvent *)event;
++ (instancetype)sharedManager;
+
+- (void)saveEvent:(TSEvent *)event at:(NSTimeInterval)timestamp;
+
+- (void)saveEventNow:(TSEvent *)event;
+
 //return event in db
--(NSArray *)rawEventsFrom:(NSTimeInterval) from to:(NSTimeInterval) to;
-//return event in db,with a fake event (start),the fake event has the pre apps info
--(NSArray *)eventsFrom:(NSTimeInterval) from to:(NSTimeInterval) to;
--(NSDictionary *)appsFrom:(NSTimeInterval) from to:(NSTimeInterval) to;
--(NSDictionary *)websitesFrom:(NSTimeInterval) from to:(NSTimeInterval) to;
+- (NSArray *)rawEventsFrom:(NSTimeInterval)from to:(NSTimeInterval)to;
+
+- (NSArray *)usageRecordFrom:(NSTimeInterval)from to:(NSTimeInterval)to;
+
+- (NSArray *)applicationsAggregationFrom:(NSTimeInterval)from to:(NSTimeInterval)to orderByDuration:(NSComparisonResult)order;
+
+- (NSArray *)websitesAggregationFrom:(NSTimeInterval)from to:(NSTimeInterval)to orderByDuration:(NSComparisonResult)order;
 @end

@@ -59,49 +59,30 @@
     NSTimeInterval endMillis = [sharedConfig.endDateOverUI timeIntervalSinceReferenceDate];
     
     TSEventManager *sharedManager = [TSEventManager sharedManager];
-    NSDictionary *aggrInfo = nil;
-    
+    NSArray *aggr = nil;
     if ([type isEqualToString:@"app"]) {
-        aggrInfo =[sharedManager appsFrom:startMillis to:endMillis];
+        aggr = [[TSEventManager sharedManager] applicationsAggregationFrom:startMillis to:endMillis orderByDuration:NSOrderedDescending];
     }else{
-        aggrInfo =[sharedManager websitesFrom:startMillis to:endMillis];
+        aggr = [[TSEventManager sharedManager] websitesAggregationFrom:startMillis to:endMillis orderByDuration:NSOrderedDescending];
     }
-    NSMutableDictionary *mutableDic = [[NSMutableDictionary alloc]initWithDictionary:aggrInfo];
-    [mutableDic removeObjectForKey:@"com.apple.loginwindow"];
-    [mutableDic removeObjectForKey:@"com.apple.ScreenSaver.Engine"];
-    aggrInfo = mutableDic;
-
-    NSArray *sorted = [aggrInfo.allValues sortedArrayUsingComparator:^NSComparisonResult(id obj1, id obj2) {
-        TSEvent *a = obj1;
-        TSEvent *b = obj2;
-        if (a.end>b.end){
-            return NSOrderedAscending;
-        }else if(a.end<b.end){
-            return NSOrderedDescending;
-        }
-        return NSOrderedSame;
-    }];
-    
-    
-    if ([type isEqualToString:@"app"]) {
-        [self.appTimePieChart setEventList:sorted];
-    }else{
-        [self.webTimePieChart setEventList:sorted];
-    }
-    
-    NSMutableArray *results = [[NSMutableArray alloc]initWithCapacity:sorted.count];
-    for (TSEvent *statEvent in sorted) {
-        NSString * statKey= nil;
-        if ([type isEqualToString:@"app"]) {
-            statKey =  statEvent.bundleName;
-        }else{
-            statKey =  statEvent.pageDomain;
-        }
-        if([statKey isEqualToString: @"com.apple.loginwindow"]
-           || [statKey isEqualToString: @"com.apple.ScreenSaver.Engine"]){
+    NSMutableArray *filtedResult = [[NSMutableArray alloc] initWithCapacity:aggr.count];
+    for (TSUsageAggregation *usageAggregation in aggr) {
+        if ([usageAggregation.identifier isEqualToString:@"com.apple.loginwindow"] ||
+                [usageAggregation.identifier isEqualToString:@"com.apple.ScreenSaver.Engine"] ){
             continue;
         }
-        [results addObject:[NSString stringWithFormat:@"%@\t%f",statKey,statEvent.end]];
+        [filtedResult addObject:usageAggregation];
+    }
+
+    if ([type isEqualToString:@"app"]) {
+        [self.appTimePieChart setEventList:filtedResult];
+    }else{
+        [self.webTimePieChart setEventList:filtedResult];
+    }
+    NSMutableArray *results = [[NSMutableArray alloc] initWithCapacity:filtedResult.count];
+    for (TSUsageAggregation *statEvent in filtedResult) {
+        NSString * statKey= statEvent.usageName;
+        [results addObject:[NSString stringWithFormat:@"%@\t%f",statKey,statEvent.duration]];
     }
     if ([type isEqualToString:@"app"]) {
         [self.appDataArea setStringValue:[results componentsJoinedByString:@"\n"]];

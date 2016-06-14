@@ -9,24 +9,10 @@
 #import <Foundation/Foundation.h>
 #import "FMDB.h"
 
-typedef enum : NSUInteger {
-    ENTER,
-    EXIT,
-    AGGR
-} TSEventType;
-
 @interface TSEvent : NSObject
-
-@property NSTimeInterval start;
-@property NSTimeInterval end;
-@property NSString *bundleName;
-@property (nonatomic) NSString *pageName;
-@property (nonatomic) NSString *pageDomain;
-@property TSEventType type;
-
-
-+(instancetype)enterEventWithBundle:(NSString *)bundleName withPage:(NSString *)pageURL;
-+(instancetype)aggrEventWithBundle:(NSString *)bundleName;
-+(instancetype)aggrEventWithPageDomain:(NSString *)domainName;
-
+@property NSTimeInterval eventTime;
+@property NSString *bundleId;
+@property(nonatomic) NSString *pageName;
+@property(nonatomic) NSString *pageDomain;
++ (instancetype)enterEventWithBundle:(NSString *)bundleId withPage:(NSString *)pageURL;
 @end
