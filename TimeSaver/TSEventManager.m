@@ -133,9 +133,9 @@
             aggregation = [[TSUsageAggregation alloc]init];
             aggregation.usageName = record.usageName;
             aggregation.identifier = record.identifier;
-            aggregation.duration = record.duration;
             aggregation.actionType = record.actionType;
             aggregation.targetType = record.targetType;
+            aggregation.duration = 0;
         }
         aggregation.duration +=record.duration;
         appDict[record.identifier]  = aggregation;
