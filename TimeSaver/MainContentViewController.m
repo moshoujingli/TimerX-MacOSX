@@ -37,7 +37,6 @@
                         change:(NSDictionary *)change
                        context:(void *)context{
     NSInteger tabIndex = [(NSNumber *)[change objectForKey:@"new"] integerValue];
-    NSLog(@"%d",tabIndex);
     [self.tabView selectTabViewItemAtIndex:tabIndex];
 }
 

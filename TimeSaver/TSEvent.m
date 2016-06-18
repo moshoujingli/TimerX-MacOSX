@@ -8,39 +8,43 @@
 
 #import "TSEvent.h"
 
-@implementation TSEvent
+@implementation TSEvent {}
 @synthesize pageName = _pageName;
 @synthesize pageDomain = _pageDomain;
 
-+(instancetype)enterEventWithBundle:(NSString *)bundleName withPage:(NSString *)pageURL{
++(instancetype)enterEventWithBundle:(NSString *)bundleId withPage:(NSString *)pageURL{
     TSEvent *event = [[TSEvent alloc]init];
-    event.bundleName = bundleName;
+    event.bundleId = bundleId;
     event.pageName = pageURL;
-    event.type = ENTER;
-    return event;
-}
-
-+(instancetype)aggrEventWithBundle:(NSString *)bundleName{
-    TSEvent *event = [[TSEvent alloc]init];
-    event.bundleName = bundleName;
-    event.type = AGGR;
-    event.start=0;
-    event.end=0;
-    return event;
-}
-+(instancetype)aggrEventWithPageDomain:(NSString *)domainName{
-    TSEvent *event = [[TSEvent alloc]init];
-    event.pageDomain = domainName;
-    event.type = AGGR;
-    event.start=0;
-    event.end=0;
     return event;
 }
 -(void)setPageName:(NSString *)pageName{
     _pageName = pageName;
-    _pageDomain = [NSURL URLWithString:pageName].host;
+    if ([_bundleId isEqualToString:@"com.apple.Safari"] ||
+            [_bundleId isEqualToString:@"com.google.Chrome"]){
+        NSURL *pageURL = [NSURL URLWithString:pageName];
+        if (pageURL==nil){
+            _pageDomain = @"UNKNOWN";
+        }else{
+            _pageDomain = pageURL.host;
+            if (_pageDomain==nil){
+                NSString *scheme = pageURL.scheme;
+                if (scheme!=nil) {
+                    _pageDomain = scheme;
+                }else{
+                    if (pageName==nil){
+                        _pageDomain = @"UNKNOWN";
+                    }else {
+                        _pageDomain=pageName;
+                    }
+                }
+            }
+        }
+    }else{
+
+    }
 }
 -(NSString *)description{
-    return [NSString stringWithFormat:@"%@\t%@\t%f",self.bundleName,self.pageDomain,self.start];
+    return [NSString stringWithFormat:@"%@\t%@\t%f",self.bundleId,self.pageDomain,self.eventTime];
 }
 @end

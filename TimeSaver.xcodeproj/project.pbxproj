@@ -8,6 +8,9 @@
 
 /* Begin PBXBuildFile section */
 		06F7F929B887038B81F07298 /* libPods-TimeSaver.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 9B722B6B37B8C42E371BFA30 /* libPods-TimeSaver.a */; };
+		592AE4074B104EA57108FD0B /* TSUsageAggregation.m in Sources */ = {isa = PBXBuildFile; fileRef = 592AE289A8AD14DA63D74CBA /* TSUsageAggregation.m */; };
+		592AE851ABF3F4BF9E47D6F9 /* TXPieChartView.m in Sources */ = {isa = PBXBuildFile; fileRef = 592AE63CBD4D19E9473E237D /* TXPieChartView.m */; };
+		592AE9A8242040164CEA858B /* TSUsageRecord.m in Sources */ = {isa = PBXBuildFile; fileRef = 592AEE016094F965EEEC8D2D /* TSUsageRecord.m */; };
 		6A0890761CF498BF00B2DBCB /* TSEventManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 6A0890751CF498BF00B2DBCB /* TSEventManager.m */; };
 		6A0890791CF4A44E00B2DBCB /* TSMacStatesObserver.m in Sources */ = {isa = PBXBuildFile; fileRef = 6A0890781CF4A44E00B2DBCB /* TSMacStatesObserver.m */; };
 		E194BA3C1CFA1A2800910B8E /* TXUserView.m in Sources */ = {isa = PBXBuildFile; fileRef = E194BA3B1CFA1A2800910B8E /* TXUserView.m */; };
@@ -47,6 +50,12 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		592AE289A8AD14DA63D74CBA /* TSUsageAggregation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TSUsageAggregation.m; sourceTree = "<group>"; };
+		592AE63CBD4D19E9473E237D /* TXPieChartView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TXPieChartView.m; sourceTree = "<group>"; };
+		592AE6A8DBD20F2331EA0F1B /* TSUsageAggregation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TSUsageAggregation.h; sourceTree = "<group>"; };
+		592AEB175BD0867707840C4B /* TSUsageRecord.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TSUsageRecord.h; sourceTree = "<group>"; };
+		592AEE016094F965EEEC8D2D /* TSUsageRecord.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TSUsageRecord.m; sourceTree = "<group>"; };
+		592AEF808F6789A9B674DA50 /* TXPieChartView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TXPieChartView.h; sourceTree = "<group>"; };
 		5D974EA7FCD5B52B4761D616 /* Pods-TimeSaver.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TimeSaver.release.xcconfig"; path = "Pods/Target Support Files/Pods-TimeSaver/Pods-TimeSaver.release.xcconfig"; sourceTree = "<group>"; };
 		6A0890741CF498BF00B2DBCB /* TSEventManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TSEventManager.h; sourceTree = "<group>"; };
 		6A0890751CF498BF00B2DBCB /* TSEventManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TSEventManager.m; sourceTree = "<group>"; };
@@ -214,6 +223,10 @@
 				6A0890781CF4A44E00B2DBCB /* TSMacStatesObserver.m */,
 				E19CCFCA1CFC46BF0060DA28 /* TXUserConfig.h */,
 				E19CCFCB1CFC46BF0060DA28 /* TXUserConfig.m */,
+				592AEE016094F965EEEC8D2D /* TSUsageRecord.m */,
+				592AEB175BD0867707840C4B /* TSUsageRecord.h */,
+				592AE289A8AD14DA63D74CBA /* TSUsageAggregation.m */,
+				592AE6A8DBD20F2331EA0F1B /* TSUsageAggregation.h */,
 			);
 			name = model;
 			sourceTree = "<group>";
@@ -255,6 +268,8 @@
 				E1F5EF6F1CF9E17F0082C1F6 /* NSView+Background.m */,
 				E194BA3A1CFA1A2800910B8E /* TXUserView.h */,
 				E194BA3B1CFA1A2800910B8E /* TXUserView.m */,
+				592AE63CBD4D19E9473E237D /* TXPieChartView.m */,
+				592AEF808F6789A9B674DA50 /* TXPieChartView.h */,
 			);
 			name = view;
 			sourceTree = "<group>";
@@ -274,12 +289,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = E1CED57A1CEB55BB007C409E /* Build configuration list for PBXNativeTarget "TimeSaver" */;
 			buildPhases = (
-				0BFCF5A43BA3626C75163670 /* 📦 Check Pods Manifest.lock */,
+				0BFCF5A43BA3626C75163670 /* uD83DuDCE6 Check Pods Manifest.lock */,
 				E1CED54C1CEB55BB007C409E /* Sources */,
 				E1CED54D1CEB55BB007C409E /* Frameworks */,
 				E1CED54E1CEB55BB007C409E /* Resources */,
-				56A2A22D14F0066FA9A3A4FC /* 📦 Embed Pods Frameworks */,
-				8C669FF3F8C298FFC295B776 /* 📦 Copy Pods Resources */,
+				56A2A22D14F0066FA9A3A4FC /* uD83DuDCE6 Embed Pods Frameworks */,
+				8C669FF3F8C298FFC295B776 /* uD83DuDCE6 Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -395,14 +410,14 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		0BFCF5A43BA3626C75163670 /* 📦 Check Pods Manifest.lock */ = {
+		0BFCF5A43BA3626C75163670 /* uD83DuDCE6 Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
 			);
-			name = "📦 Check Pods Manifest.lock";
+			name = "uD83DuDCE6 Check Pods Manifest.lock";
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -410,14 +425,14 @@
 			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
 			showEnvVarsInLog = 0;
 		};
-		56A2A22D14F0066FA9A3A4FC /* 📦 Embed Pods Frameworks */ = {
+		56A2A22D14F0066FA9A3A4FC /* uD83DuDCE6 Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
 			);
-			name = "📦 Embed Pods Frameworks";
+			name = "uD83DuDCE6 Embed Pods Frameworks";
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -425,14 +440,14 @@
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-TimeSaver/Pods-TimeSaver-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
-		8C669FF3F8C298FFC295B776 /* 📦 Copy Pods Resources */ = {
+		8C669FF3F8C298FFC295B776 /* uD83DuDCE6 Copy Pods Resources */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
 			);
-			name = "📦 Copy Pods Resources";
+			name = "uD83DuDCE6 Copy Pods Resources";
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -462,6 +477,9 @@
 				E1F5EF701CF9E17F0082C1F6 /* NSView+Background.m in Sources */,
 				E1F5EF6A1CF8614E0082C1F6 /* MainSplitViewController.m in Sources */,
 				6A0890761CF498BF00B2DBCB /* TSEventManager.m in Sources */,
+				592AE851ABF3F4BF9E47D6F9 /* TXPieChartView.m in Sources */,
+				592AE9A8242040164CEA858B /* TSUsageRecord.m in Sources */,
+				592AE4074B104EA57108FD0B /* TSUsageAggregation.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -597,7 +615,7 @@
 				COMBINE_HIDPI_IMAGES = YES;
 				INFOPLIST_FILE = TimeSaver/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
-				MACOSX_DEPLOYMENT_TARGET = 10.10;
+				MACOSX_DEPLOYMENT_TARGET = 10.11;
 				PRODUCT_BUNDLE_IDENTIFIER = com.moshoujingli.TimeSaver;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
@@ -611,7 +629,7 @@
 				COMBINE_HIDPI_IMAGES = YES;
 				INFOPLIST_FILE = TimeSaver/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
-				MACOSX_DEPLOYMENT_TARGET = 10.10;
+				MACOSX_DEPLOYMENT_TARGET = 10.11;
 				PRODUCT_BUNDLE_IDENTIFIER = com.moshoujingli.TimeSaver;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
