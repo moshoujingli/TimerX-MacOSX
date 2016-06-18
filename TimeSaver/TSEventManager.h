@@ -20,7 +20,7 @@
 //return event in db
 - (NSArray *)rawEventsFrom:(NSTimeInterval)from to:(NSTimeInterval)to;
 
-- (NSArray *)usageRecordFrom:(NSTimeInterval)from to:(NSTimeInterval)to;
+- (NSArray *)usageRecordFrom:(NSTimeInterval)from to:(NSTimeInterval)to asActionType:(TSActionType)type;
 
 - (NSArray *)applicationsAggregationFrom:(NSTimeInterval)from to:(NSTimeInterval)to orderByDuration:(NSComparisonResult)order;
 

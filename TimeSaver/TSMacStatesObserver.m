@@ -15,6 +15,7 @@
 
 #define DEVICE_SLEEP @"system.sleep"
 #define NOT_RUNNING @"app.closed"
+#define START_RUNNING @"app.start"
 
 
 @interface TSMacStatesObserver()
@@ -41,7 +42,7 @@
 }
 
 -(void)startObserve{
-    [self logEventForBundle:NOT_RUNNING page:nil];
+    [self logEventForBundle:START_RUNNING page:nil];
     NSNotificationCenter *workspaceNotificationCenter = [NSWorkspace sharedWorkspace].notificationCenter;
     [workspaceNotificationCenter addObserver:self
                                  selector:@selector(appChange:)

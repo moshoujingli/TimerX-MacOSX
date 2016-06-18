@@ -66,7 +66,8 @@
     NSArray *events = [TSEventManager parseArray:rs];
     return events;
 }
-- (NSArray *)usageRecordFrom:(NSTimeInterval)from to:(NSTimeInterval)to {
+
+- (NSArray *)usageRecordFrom:(NSTimeInterval)from to:(NSTimeInterval)to asActionType:(TSActionType)type {
     NSArray *rawEvents = [self rawEventsFrom:from to:to];
     FMResultSet *rs = [self.db executeQuery:@"select bundle,page,time_millis from app_time_line where time_millis <= ? order by time_millis desc limit 1", @(from)];
     NSArray *events = [TSEventManager parseArray:rs];
@@ -93,7 +94,7 @@
         lastRecord.startTime = event.eventTime;
         lastRecord.actionType = [self getActionTypeForStartEvent:event];
         lastRecord.targetType = [self getTargetTypeForStartEvent:event];
-        lastRecord.usageName = lastRecord.actionType==WEB_PAGE?event.pageDomain:event.bundleId;
+        lastRecord.usageName = type==WEB_PAGE?event.pageDomain:event.bundleId;
         lastRecord.identifier = lastRecord.usageName;
     }
     lastRecord.endTime = to;
@@ -102,7 +103,12 @@
 }
 
 -(TSActionType)getActionTypeForStartEvent:(TSEvent *)event{
-    if (event.bundleId!=nil && event.pageName!=nil){
+
+    if ([event.bundleId isEqualToString:@"com.apple.Safari"] ||
+            [event.bundleId isEqualToString:@"com.google.Chrome"]){
+        if(event.pageDomain==nil){
+            NSLog([event description]);
+        }
         return WEB_PAGE;
     }else{
         return APP;
@@ -122,10 +128,10 @@
 }
 
 - (NSArray *)aggregationFor:(TSActionType)type From:(NSTimeInterval)from to:(NSTimeInterval)to orderByDuration:(NSComparisonResult)order {
-    NSArray *usageRecords = [self usageRecordFrom:from to:to];
+    NSArray *usageRecords = [self usageRecordFrom:from to:to asActionType:type];
     NSMutableDictionary *appDict = [[NSMutableDictionary alloc] initWithCapacity:usageRecords.count/10];
     for (TSUsageRecord *record in usageRecords) {
-        if (record.actionType!=type){
+        if (type != APP && record.actionType!=type){
             continue;
         }
         TSUsageAggregation *aggregation = appDict[record.identifier];

@@ -8,7 +8,7 @@
 
 #import "TSEvent.h"
 
-@implementation TSEvent
+@implementation TSEvent {}
 @synthesize pageName = _pageName;
 @synthesize pageDomain = _pageDomain;
 
@@ -20,9 +20,28 @@
 }
 -(void)setPageName:(NSString *)pageName{
     _pageName = pageName;
-    _pageDomain = [NSURL URLWithString:pageName].host;
-    if (_pageDomain==nil){
-        _pageDomain = [NSURL URLWithString:pageName].scheme;
+    if ([_bundleId isEqualToString:@"com.apple.Safari"] ||
+            [_bundleId isEqualToString:@"com.google.Chrome"]){
+        NSURL *pageURL = [NSURL URLWithString:pageName];
+        if (pageURL==nil){
+            _pageDomain = @"UNKNOWN";
+        }else{
+            _pageDomain = pageURL.host;
+            if (_pageDomain==nil){
+                NSString *scheme = pageURL.scheme;
+                if (scheme!=nil) {
+                    _pageDomain = scheme;
+                }else{
+                    if (pageName==nil){
+                        _pageDomain = @"UNKNOWN";
+                    }else {
+                        _pageDomain=pageName;
+                    }
+                }
+            }
+        }
+    }else{
+
     }
 }
 -(NSString *)description{
